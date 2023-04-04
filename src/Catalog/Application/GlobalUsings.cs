@@ -1,0 +1,17 @@
+﻿global using System.Reflection;
+global using System.Web;
+global using AutoMapper;
+global using AutoMapper.QueryableExtensions;
+global using Catalog.Application.Common.Behaviours;
+global using Catalog.Application.Common.Exceptions;
+global using Catalog.Application.Common.Mappings;
+global using Catalog.Application.Common.Models;
+global using Catalog.Application.Common.Validation;
+global using Catalog.Application.Interfaces;
+global using Catalog.Domain.Entities;
+global using FluentValidation;
+global using FluentValidation.Results;
+global using HtmlAgilityPack;
+global using MediatR;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.Extensions.DependencyInjection;

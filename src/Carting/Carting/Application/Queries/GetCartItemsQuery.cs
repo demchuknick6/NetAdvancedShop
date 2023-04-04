@@ -1,0 +1,31 @@
+﻿namespace Carting.Application.Queries;
+
+public record GetCartItemsQuery(Guid CartId) : IRequest<List<CartItemDto>>;
+
+public class GetCartItemsQueryHandler : IRequestHandler<GetCartItemsQuery, List<CartItemDto>>
+{
+    private readonly IOptions<CartingSettings> _settings;
+    private readonly IMapper<CartItemDto, CartItem> _mapper;
+
+    public GetCartItemsQueryHandler(IOptions<CartingSettings> settings, IMapper<CartItemDto, CartItem> mapper)
+    {
+        _settings = settings;
+        _mapper = mapper;
+    }
+
+    public Task<List<CartItemDto>> Handle(
+        GetCartItemsQuery request,
+        CancellationToken cancellationToken)
+    {
+        using var context = new CartingContext(_settings);
+
+        var cart = context.Carts.FindOne(c => c.Id == request.CartId);
+
+        if (cart == null)
+        {
+            throw new NotFoundException(nameof(Cart), request.CartId);
+        }
+
+        return Task.FromResult(cart.Items.Select(i => _mapper.Translate(i)).ToList());
+    }
+}
