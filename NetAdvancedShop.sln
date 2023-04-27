@@ -18,27 +18,41 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Carting", "Carting", "{A42C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{393A1510-BFCB-43DF-998D-12B56B656DA4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Application", "src\Catalog\Application\Catalog.Application.csproj", "{B9E827AF-1F91-4A6B-B66F-6885197B3FBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Application", "src\Catalog\Catalog.Application\Catalog.Application.csproj", "{B9E827AF-1F91-4A6B-B66F-6885197B3FBD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Domain", "src\Catalog\Domain\Catalog.Domain.csproj", "{67AFDEE2-59B0-4AB9-BC8C-3720171C9D9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Domain", "src\Catalog\Catalog.Domain\Catalog.Domain.csproj", "{67AFDEE2-59B0-4AB9-BC8C-3720171C9D9A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Infrastructure", "src\Catalog\Infrastructure\Catalog.Infrastructure.csproj", "{A58E23FD-38C2-4490-950C-D852511A5528}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Infrastructure", "src\Catalog\Catalog.Infrastructure\Catalog.Infrastructure.csproj", "{A58E23FD-38C2-4490-950C-D852511A5528}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{30852BA1-BA7C-4906-8CEF-6479176FE8ED}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Application.UnitTests", "src\Catalog\Application.UnitTests\Catalog.Application.UnitTests.csproj", "{E61C4CD5-9776-4902-A64B-05CA1C0EEF1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Application.UnitTests", "src\Catalog\Catalog.Application.UnitTests\Catalog.Application.UnitTests.csproj", "{E61C4CD5-9776-4902-A64B-05CA1C0EEF1E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Domain.UnitTests", "src\Catalog\Domain.UnitTests\Catalog.Domain.UnitTests.csproj", "{F61EDB03-4B00-40DD-8214-698293554BB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Domain.UnitTests", "src\Catalog\Catalog.Domain.UnitTests\Catalog.Domain.UnitTests.csproj", "{F61EDB03-4B00-40DD-8214-698293554BB6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carting", "src\Carting\Carting\Carting.csproj", "{97D32BE6-3FB0-4599-8A1C-17300BA6F030}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Application.IntegrationTests", "src\Catalog\Application.IntegrationTests\Catalog.Application.IntegrationTests.csproj", "{13EAE2DB-EF17-4D9A-B5F5-2A1053CB9110}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Application.IntegrationTests", "src\Catalog\Catalog.Application.IntegrationTests\Catalog.Application.IntegrationTests.csproj", "{13EAE2DB-EF17-4D9A-B5F5-2A1053CB9110}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.Common", "tests\Tests.Common\Tests.Common.csproj", "{8EF643E6-2641-4BBF-9775-24121EC05208}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carting.Application.IntegrationTests", "src\Carting\Carting.Application.IntegrationTests\Carting.Application.IntegrationTests.csproj", "{10D0BE88-BB6A-4260-990F-104B5C7A8CBF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{11EF0A97-4E39-4988-96D0-F3764DF6D6DF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.WebUI", "src\Catalog\Catalog.WebUI\Catalog.WebUI.csproj", "{61B6DA79-F80A-47DF-B30C-AB8755DC0EBB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.WebUI.IntegrationTests", "src\Catalog\Catalog.WebUI.IntegrationTests\Catalog.WebUI.IntegrationTests.csproj", "{E695BA82-AFB9-43FB-BC33-E6AA11B60943}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carting.WebUI", "src\Carting\Carting.WebUI\Carting.WebUI.csproj", "{29653C12-B168-4066-B3FB-2C11D6C55EC8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{2A7ED64C-CE6A-49C3-9567-1E43D6527237}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Application", "src\Common\Common.Application\Common.Application.csproj", "{DDE19111-079E-4B93-A43A-B6CED4492D08}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.WebUI", "src\Common\Common.WebUI\Common.WebUI.csproj", "{D662BB01-AF88-4336-B24B-4A3A669197F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carting.WebUI.IntegrationTests", "src\Carting\Carting.WebUI.IntegrationTests\Carting.WebUI.IntegrationTests.csproj", "{1393FF95-6DA2-4FC9-8A60-600F9878CC54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -82,6 +96,30 @@ Global
 		{10D0BE88-BB6A-4260-990F-104B5C7A8CBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10D0BE88-BB6A-4260-990F-104B5C7A8CBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10D0BE88-BB6A-4260-990F-104B5C7A8CBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61B6DA79-F80A-47DF-B30C-AB8755DC0EBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61B6DA79-F80A-47DF-B30C-AB8755DC0EBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61B6DA79-F80A-47DF-B30C-AB8755DC0EBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61B6DA79-F80A-47DF-B30C-AB8755DC0EBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E695BA82-AFB9-43FB-BC33-E6AA11B60943}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E695BA82-AFB9-43FB-BC33-E6AA11B60943}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E695BA82-AFB9-43FB-BC33-E6AA11B60943}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E695BA82-AFB9-43FB-BC33-E6AA11B60943}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29653C12-B168-4066-B3FB-2C11D6C55EC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29653C12-B168-4066-B3FB-2C11D6C55EC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29653C12-B168-4066-B3FB-2C11D6C55EC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29653C12-B168-4066-B3FB-2C11D6C55EC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDE19111-079E-4B93-A43A-B6CED4492D08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDE19111-079E-4B93-A43A-B6CED4492D08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDE19111-079E-4B93-A43A-B6CED4492D08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDE19111-079E-4B93-A43A-B6CED4492D08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D662BB01-AF88-4336-B24B-4A3A669197F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D662BB01-AF88-4336-B24B-4A3A669197F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D662BB01-AF88-4336-B24B-4A3A669197F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D662BB01-AF88-4336-B24B-4A3A669197F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1393FF95-6DA2-4FC9-8A60-600F9878CC54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1393FF95-6DA2-4FC9-8A60-600F9878CC54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1393FF95-6DA2-4FC9-8A60-600F9878CC54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1393FF95-6DA2-4FC9-8A60-600F9878CC54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -100,6 +138,13 @@ Global
 		{8EF643E6-2641-4BBF-9775-24121EC05208} = {A9DD5788-4895-4A3A-87B6-3DF8181C2A14}
 		{10D0BE88-BB6A-4260-990F-104B5C7A8CBF} = {11EF0A97-4E39-4988-96D0-F3764DF6D6DF}
 		{11EF0A97-4E39-4988-96D0-F3764DF6D6DF} = {A42C102E-E190-4054-A09A-966337F2398D}
+		{61B6DA79-F80A-47DF-B30C-AB8755DC0EBB} = {393A1510-BFCB-43DF-998D-12B56B656DA4}
+		{E695BA82-AFB9-43FB-BC33-E6AA11B60943} = {30852BA1-BA7C-4906-8CEF-6479176FE8ED}
+		{29653C12-B168-4066-B3FB-2C11D6C55EC8} = {A42C102E-E190-4054-A09A-966337F2398D}
+		{2A7ED64C-CE6A-49C3-9567-1E43D6527237} = {62CEAD2C-93F6-48D7-89AB-F6B9889BA336}
+		{DDE19111-079E-4B93-A43A-B6CED4492D08} = {2A7ED64C-CE6A-49C3-9567-1E43D6527237}
+		{D662BB01-AF88-4336-B24B-4A3A669197F2} = {2A7ED64C-CE6A-49C3-9567-1E43D6527237}
+		{1393FF95-6DA2-4FC9-8A60-600F9878CC54} = {11EF0A97-4E39-4988-96D0-F3764DF6D6DF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {69599D0B-158F-4A68-BF2C-089305A2833D}

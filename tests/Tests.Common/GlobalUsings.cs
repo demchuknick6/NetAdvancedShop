@@ -1,5 +1,15 @@
-﻿global using MediatR;
+﻿global using System.Collections;
+global using FluentAssertions;
+global using FluentAssertions.Collections;
+global using FluentAssertions.Equivalency;
+global using FluentAssertions.Execution;
+global using MediatR;
+global using Microsoft.AspNetCore.Hosting;
+global using Microsoft.AspNetCore.Mvc.Testing;
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.EntityFrameworkCore.Diagnostics;
 global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.DependencyInjection.Extensions;
+global using Moq;
+global using Newtonsoft.Json;
 global using NUnit.Framework;

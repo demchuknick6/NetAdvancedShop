@@ -11,7 +11,7 @@ public class RemoveCartItemCommandHandler : IRequestHandler<RemoveCartItemComman
         _settings = settings;
     }
 
-    public Task<Unit> Handle(RemoveCartItemCommand request, CancellationToken cancellationToken)
+    public async Task<Unit> Handle(RemoveCartItemCommand request, CancellationToken cancellationToken)
     {
         using var context = new CartingContext(_settings);
 
@@ -33,6 +33,6 @@ public class RemoveCartItemCommandHandler : IRequestHandler<RemoveCartItemComman
 
         context.Carts.Update(cart);
 
-        return Task.FromResult(Unit.Value);
+        return await Task.FromResult(Unit.Value);
     }
 }

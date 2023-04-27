@@ -1,0 +1,13 @@
+﻿global using System.Text.Json.Serialization;
+global using Carting;
+global using Carting.Application.Commands.AddCartItem;
+global using Carting.Application.Commands.RemoveCartItem;
+global using Carting.Application.Queries;
+global using Carting.WebUI.Extensions;
+global using Carting.WebUI.Models.Cart;
+global using Carting.WebUI.Models.CartItem;
+global using Common.WebUI.Controllers;
+global using Common.WebUI.Extensions;
+global using MediatR;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.OpenApi.Models;

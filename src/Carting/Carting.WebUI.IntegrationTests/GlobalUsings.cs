@@ -1,0 +1,12 @@
+﻿global using System.Net;
+global using System.Net.Http.Json;
+global using Carting.Application.Commands.AddCartItem;
+global using Carting.Application.Commands.RemoveCartItem;
+global using Carting.Application.Queries;
+global using Carting.WebUI.Models.Cart;
+global using Carting.WebUI.Models.CartItem;
+global using FluentAssertions;
+global using MediatR;
+global using NUnit.Framework;
+global using Tests.Common.Extensions;
+global using Tests.Common.WebTests;

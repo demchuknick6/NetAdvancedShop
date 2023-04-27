@@ -11,11 +11,8 @@ public class CartingApplicationFixture : ApplicationFixture
 
     protected override void ConfigureServiceSpecificServices(ServiceCollection services)
     {
+        services.AddOptions(_connectionString);
         services.AddApplicationServices();
-
-        var cartingSettings = new CartingSettings { ConnectionString = _connectionString };
-        var cartingSettingsWrapper = new OptionsWrapper<CartingSettings>(cartingSettings);
-        services.AddSingleton<IOptions<CartingSettings>>(cartingSettingsWrapper);
     }
 
     protected override Task CleanUp()

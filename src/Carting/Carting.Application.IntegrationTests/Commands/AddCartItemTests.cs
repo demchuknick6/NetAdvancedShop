@@ -6,14 +6,7 @@ public class AddCartItemTests : ApplicationTests<CartingApplicationFixture>
     public async Task Send_CartNotExists_CreatesNewAndAddsItem()
     {
         var cartId = Application.RandomId;
-        var cartItem = new CartItem
-        {
-            Id = Application.RandomInt,
-            Name = Application.RandomString,
-            Price = Application.RandomInt,
-            Quantity = Application.RandomUint,
-            Image = null
-        };
+        var cartItem = AddCartItemDto();
 
         var command = new AddCartItemCommand(cartId, cartItem);
 
@@ -36,7 +29,7 @@ public class AddCartItemTests : ApplicationTests<CartingApplicationFixture>
                     cartItem.Name,
                     cartItem.Price,
                     cartItem.Quantity,
-                    cartItem.Image,
+                    cartItem.Image
                 }
             });
     }
@@ -59,9 +52,10 @@ public class AddCartItemTests : ApplicationTests<CartingApplicationFixture>
             ctx.Carts.Insert(new Cart { Id = cartId, Items = new[] { cartItem } });
         }
 
-        var command = new AddCartItemCommand(cartId, cartItem);
+        var addCartItem = AddCartItemDto(cartItem.Id);
+        var command = new AddCartItemCommand(cartId, addCartItem);
 
-        // since cart with item exists, increase item quantity by the same number
+        // since cart with item exists, increase item quantity
         await SendAsync(command, clearEntries: false);
 
         using var context = new CartingContext(Application.Settings);
@@ -80,9 +74,19 @@ public class AddCartItemTests : ApplicationTests<CartingApplicationFixture>
                     cartItem.Id,
                     cartItem.Name,
                     cartItem.Price,
-                    Quantity = cartItem.Quantity * 2,
-                    cartItem.Image,
+                    Quantity = cartItem.Quantity + addCartItem.Quantity,
+                    cartItem.Image
                 }
             });
     }
+
+    private AddCartItemDto AddCartItemDto(int? id = null) =>
+        new()
+        {
+            Id = id ?? Application.RandomInt,
+            Name = Application.RandomString,
+            Price = Application.RandomInt,
+            Quantity = Application.RandomUint,
+            Image = null
+        };
 }

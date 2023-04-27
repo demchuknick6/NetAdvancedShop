@@ -1,12 +1,12 @@
 ﻿global using System.Reflection;
 global using Carting.Application.Commands.AddCartItem;
 global using Carting.Application.Commands.RemoveCartItem;
-global using Carting.Application.Common.Exceptions;
 global using Carting.Application.Queries;
 global using Carting.Domain.Entities;
 global using Carting.Infrastructure;
+global using Common.Application.Exceptions;
 global using FluentAssertions;
 global using Microsoft.Extensions.DependencyInjection;
 global using Microsoft.Extensions.Options;
 global using NUnit.Framework;
-global using Tests.Common;
+global using Tests.Common.ApplicationTests;

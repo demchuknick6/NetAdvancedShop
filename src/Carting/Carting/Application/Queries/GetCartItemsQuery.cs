@@ -1,8 +1,8 @@
 ﻿namespace Carting.Application.Queries;
 
-public record GetCartItemsQuery(Guid CartId) : IRequest<List<CartItemDto>>;
+public record GetCartItemsQuery(Guid CartId) : IRequest<IReadOnlyCollection<CartItemDto>>;
 
-public class GetCartItemsQueryHandler : IRequestHandler<GetCartItemsQuery, List<CartItemDto>>
+public class GetCartItemsQueryHandler : IRequestHandler<GetCartItemsQuery, IReadOnlyCollection<CartItemDto>>
 {
     private readonly IOptions<CartingSettings> _settings;
     private readonly IMapper<CartItemDto, CartItem> _mapper;
@@ -13,7 +13,7 @@ public class GetCartItemsQueryHandler : IRequestHandler<GetCartItemsQuery, List<
         _mapper = mapper;
     }
 
-    public Task<List<CartItemDto>> Handle(
+    public async Task<IReadOnlyCollection<CartItemDto>> Handle(
         GetCartItemsQuery request,
         CancellationToken cancellationToken)
     {
@@ -26,6 +26,8 @@ public class GetCartItemsQueryHandler : IRequestHandler<GetCartItemsQuery, List<
             throw new NotFoundException(nameof(Cart), request.CartId);
         }
 
-        return Task.FromResult(cart.Items.Select(i => _mapper.Translate(i)).ToList());
+        var items = cart.Items.Select(i => _mapper.Translate(i)).ToList();
+
+        return await Task.FromResult(items);
     }
 }

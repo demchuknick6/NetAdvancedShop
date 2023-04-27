@@ -1,17 +1,19 @@
 ﻿namespace Carting.Application.Commands.AddCartItem;
 
-public record AddCartItemCommand(Guid CartId, CartItem Item) : IRequest<Unit>;
+public record AddCartItemCommand(Guid CartId, AddCartItemDto Item) : IRequest<Unit>;
 
 public class AddCartItemCommandHandler : IRequestHandler<AddCartItemCommand, Unit>
 {
     private readonly IOptions<CartingSettings> _settings;
+    private readonly IMapper<CartItem, AddCartItemDto> _mapper;
 
-    public AddCartItemCommandHandler(IOptions<CartingSettings> settings)
+    public AddCartItemCommandHandler(IOptions<CartingSettings> settings, IMapper<CartItem, AddCartItemDto> mapper)
     {
         _settings = settings;
+        _mapper = mapper;
     }
 
-    public Task<Unit> Handle(AddCartItemCommand request, CancellationToken cancellationToken)
+    public async Task<Unit> Handle(AddCartItemCommand request, CancellationToken cancellationToken)
     {
         using var context = new CartingContext(_settings);
 
@@ -36,11 +38,12 @@ public class AddCartItemCommandHandler : IRequestHandler<AddCartItemCommand, Uni
         }
         else
         {
-            cart.Items.Add(request.Item);
+            var entity = _mapper.Translate(request.Item);
+            cart.Items.Add(entity);
         }
 
         context.Carts.Update(cart);
 
-        return Task.FromResult(Unit.Value);
+        return await Task.FromResult(Unit.Value);
     }
 }

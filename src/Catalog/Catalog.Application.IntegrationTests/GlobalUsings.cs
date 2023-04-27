@@ -1,0 +1,15 @@
+﻿global using Catalog.Application.Categories.Commands.CreateCategory;
+global using Catalog.Application.Categories.Commands.DeleteCategory;
+global using Catalog.Application.Categories.Commands.UpdateCategory;
+global using Catalog.Application.Categories.Queries;
+global using Catalog.Application.Items.Commands.CreateItem;
+global using Catalog.Application.Items.Commands.DeleteItem;
+global using Catalog.Application.Items.Commands.UpdateItem;
+global using Catalog.Application.Items.Queries;
+global using Catalog.Domain.Entities;
+global using Catalog.Infrastructure;
+global using Common.Application.Exceptions;
+global using FluentAssertions;
+global using Microsoft.Extensions.DependencyInjection;
+global using NUnit.Framework;
+global using Tests.Common.ApplicationTests;
