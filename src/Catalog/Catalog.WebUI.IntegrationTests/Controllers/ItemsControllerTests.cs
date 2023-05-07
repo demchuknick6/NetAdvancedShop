@@ -87,7 +87,7 @@ public class ItemsControllerTests : WebTests<CatalogServiceFixture>
     }
 
     [Test]
-    public async Task Update_ReturnsOk200()
+    public async Task Update_PublishesEventAndReturnsOk200()
     {
         Fixture.MediatorMock.SetupSendReturns(Unit.Value);
         var itemId = Fixture.RandomInt;
@@ -107,6 +107,13 @@ public class ItemsControllerTests : WebTests<CatalogServiceFixture>
             .And
             .ContainSameTo(new UpdateItemCommand(
                 itemId, model.Name, model.Description, model.ImageUri, model.CategoryId, model.Price, model.Amount));
+        Fixture.PublishedEvents.SingleOrDefault()
+            .Should()
+            .NotBeNull()
+            .And
+            .BeOfType<ItemChangedApplicationEvent>()
+            .And
+            .BeEquivalentTo(new { ItemId = itemId, NewName = model.Name, NewPrice = model.Price });
     }
 
     [Test]
@@ -124,6 +131,9 @@ public class ItemsControllerTests : WebTests<CatalogServiceFixture>
             .Should()
             .Be(HttpStatusCode.BadRequest);
         Fixture.SentRequests
+            .Should()
+            .BeEmpty();
+        Fixture.PublishedEvents
             .Should()
             .BeEmpty();
     }

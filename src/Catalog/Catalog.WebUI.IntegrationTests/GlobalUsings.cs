@@ -1,5 +1,6 @@
 ﻿global using System.Net;
 global using System.Net.Http.Json;
+global using Catalog.Application.ApplicationEvents;
 global using Catalog.Application.Categories.Commands.CreateCategory;
 global using Catalog.Application.Categories.Commands.DeleteCategory;
 global using Catalog.Application.Categories.Commands.UpdateCategory;

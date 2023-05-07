@@ -22,6 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Catalog\Catalog.Application.ApplicationEvents\Catalog.Application.ApplicationEvents.csproj" />
+    <ProjectReference Include="..\..\Common\Common.Infrastructure.EventBus.RabbitMQ\Common.Infrastructure.EventBus.RabbitMQ.csproj" />
+    <ProjectReference Include="..\..\Common\Common.Infrastructure.EventBus\Common.Infrastructure.EventBus.csproj" />
     <ProjectReference Include="..\..\Common\Common.WebUI\Common.WebUI.csproj" />
     <ProjectReference Include="..\Carting\Carting.csproj" />
   </ItemGroup>

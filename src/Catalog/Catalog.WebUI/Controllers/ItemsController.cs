@@ -3,10 +3,12 @@
 public class ItemsController : ApiControllerBase
 {
     private readonly ISender _mediator;
+    private readonly ICatalogApplicationEventService _catalogApplicationEventService;
 
-    public ItemsController(ISender mediator)
+    public ItemsController(ISender mediator, ICatalogApplicationEventService catalogApplicationEventService)
     {
         _mediator = mediator;
+        _catalogApplicationEventService = catalogApplicationEventService;
     }
 
     [HttpGet]
@@ -30,10 +32,14 @@ public class ItemsController : ApiControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesDefaultResponseType]
-    public async Task Update(int id, UpdateItemModel model) =>
+    public async Task Update(int id, UpdateItemModel model)
+    {
         await _mediator.Send(
             new UpdateItemCommand(id, model.Name, model.Description,
                 model.ImageUri, model.CategoryId, model.Price, model.Amount));
+        _catalogApplicationEventService.PublishThroughEventBus(
+            new ItemChangedApplicationEvent(id, model.Name, model.Price));
+    }
 
     [HttpDelete("{id}")]
     [ProducesResponseType(StatusCodes.Status404NotFound)]

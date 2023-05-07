@@ -27,7 +27,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.Infrastructure.EventBus.RabbitMQ\Common.Infrastructure.EventBus.RabbitMQ.csproj" />
     <ProjectReference Include="..\..\Common\Common.WebUI\Common.WebUI.csproj" />
+    <ProjectReference Include="..\Catalog.Application.ApplicationEvents\Catalog.Application.ApplicationEvents.csproj" />
     <ProjectReference Include="..\Catalog.Infrastructure\Catalog.Infrastructure.csproj" />
   </ItemGroup>
 

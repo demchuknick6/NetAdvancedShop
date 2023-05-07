@@ -17,13 +17,25 @@ public class RestApiFixture<TProgram> : ProgramFixture<TProgram> where TProgram 
     public RestApiFixture()
     {
         MediatorMock = new Mock<IMediator>();
+        EventBusMock = new Mock<IEventBus>();
+        RabbitMQPersistentConnectionMock = new Mock<IRabbitMQPersistentConnection>();
     }
 
     public Mock<IMediator> MediatorMock;
 
+    public Mock<IEventBus> EventBusMock;
+
+    public Mock<IRabbitMQPersistentConnection> RabbitMQPersistentConnectionMock;
+
     public IReadOnlyCollection<object> SentRequests =>
         MediatorMock.Invocations
             .Where(i => i.Method.Name == nameof(IMediator.Send))
+            .Select(i => i.Arguments[index: 0])
+            .ToArray();
+
+    public IReadOnlyCollection<object> PublishedEvents =>
+        EventBusMock.Invocations
+            .Where(i => i.Method.Name == nameof(IEventBus.Publish))
             .Select(i => i.Arguments[index: 0])
             .ToArray();
 
@@ -38,9 +50,19 @@ public class RestApiFixture<TProgram> : ProgramFixture<TProgram> where TProgram 
         return client;
     }
 
+    public async Task HandleApplicationEvent<TApplicationEvent, TApplicationEventHandler>(TApplicationEvent applicationEvent)
+        where TApplicationEventHandler : IApplicationEventHandler<TApplicationEvent>
+        where TApplicationEvent : ApplicationEvent
+    {
+        var handler = ActivatorUtilities.CreateInstance<TApplicationEventHandler>(Services);
+        await handler.Handle(applicationEvent);
+    }
+
     protected override void ConfigureServices(IServiceCollection services)
     {
         services.Replace(ServiceDescriptor.Singleton(MediatorMock.Object));
+        services.Replace(ServiceDescriptor.Singleton(RabbitMQPersistentConnectionMock.Object));
+        services.Replace(ServiceDescriptor.Singleton(EventBusMock.Object));
     }
 
     protected override Task CleanUp()

@@ -4,6 +4,7 @@ builder.Services.AddDbContext(builder.Configuration);
 builder.Services.AddInfrastructureServices();
 builder.Services.AddApplicationServices();
 builder.Services.AddWebUIServices();
+builder.Services.AddEventBus(builder.Configuration);
 
 var app = builder.Build();
 
@@ -32,4 +33,8 @@ app.MapControllers();
 
 app.Run();
 
-public partial class Program { }
+public partial class Program
+{
+    public static string? Namespace = typeof(Program).Namespace;
+    public static string? AppName = Namespace?.Substring(Namespace.LastIndexOf('.', Namespace.LastIndexOf('.') - 1) + 1);
+}

@@ -28,4 +28,9 @@
       </PackageReference>
    </ItemGroup>
 
+   <ItemGroup>
+     <ProjectReference Include="..\..\src\Common\Common.Infrastructure.EventBus.RabbitMQ\Common.Infrastructure.EventBus.RabbitMQ.csproj" />
+     <ProjectReference Include="..\..\src\Common\Common.Infrastructure.EventBus\Common.Infrastructure.EventBus.csproj" />
+   </ItemGroup>
+
 </Project>

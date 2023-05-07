@@ -1,4 +1,7 @@
 ﻿global using System.Collections;
+global using Common.Infrastructure.EventBus.Abstractions;
+global using Common.Infrastructure.EventBus.Events;
+global using Common.Infrastructure.EventBus.RabbitMQ;
 global using FluentAssertions;
 global using FluentAssertions.Collections;
 global using FluentAssertions.Equivalency;

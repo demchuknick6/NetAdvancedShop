@@ -10,10 +10,10 @@ public static class ConfigureServices
         return services;
     }
 
-    public static IServiceCollection AddOptions(this IServiceCollection services, string connectionString)
+    public static IServiceCollection AddOptions(this IServiceCollection services, string dbConnectionString)
     {
         services.AddOptions()
-            .Configure<CartingSettings>(o => o.ConnectionString = connectionString);
+            .Configure<CartingSettings>(o => o.ConnectionString = dbConnectionString);
 
         return services;
     }

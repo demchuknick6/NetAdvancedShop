@@ -1,6 +1,7 @@
 ﻿global using System.Reflection;
 global using Carting.Application.Commands.AddCartItem;
 global using Carting.Application.Commands.RemoveCartItem;
+global using Carting.Application.Commands.UpdateCartItem;
 global using Carting.Application.Queries;
 global using Carting.Domain.Entities;
 global using Carting.Infrastructure;

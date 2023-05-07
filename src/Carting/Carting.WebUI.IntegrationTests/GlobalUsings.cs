@@ -2,9 +2,12 @@
 global using System.Net.Http.Json;
 global using Carting.Application.Commands.AddCartItem;
 global using Carting.Application.Commands.RemoveCartItem;
+global using Carting.Application.Commands.UpdateCartItem;
 global using Carting.Application.Queries;
+global using Carting.WebUI.ApplicationEvents.EventHandling;
 global using Carting.WebUI.Models.Cart;
 global using Carting.WebUI.Models.CartItem;
+global using Catalog.Application.ApplicationEvents;
 global using FluentAssertions;
 global using MediatR;
 global using NUnit.Framework;
