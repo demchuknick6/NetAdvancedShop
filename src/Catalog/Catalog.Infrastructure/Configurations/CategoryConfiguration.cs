@@ -1,4 +1,4 @@
-﻿namespace Catalog.Infrastructure.Configurations;
+﻿namespace NetAdvancedShop.Catalog.Infrastructure.Configurations;
 
 internal class CategoryConfiguration : IEntityTypeConfiguration<Category>
 {

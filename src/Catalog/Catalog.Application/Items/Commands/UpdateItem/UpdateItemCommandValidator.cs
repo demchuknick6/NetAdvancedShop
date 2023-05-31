@@ -1,4 +1,4 @@
-﻿namespace Catalog.Application.Items.Commands.UpdateItem;
+﻿namespace NetAdvancedShop.Catalog.Application.Items.Commands.UpdateItem;
 
 public class UpdateItemCommandValidator : AbstractValidator<UpdateItemCommand>
 {

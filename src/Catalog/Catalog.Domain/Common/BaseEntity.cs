@@ -1,4 +1,4 @@
-﻿namespace Catalog.Domain.Common;
+﻿namespace NetAdvancedShop.Catalog.Domain.Common;
 
 public abstract class BaseEntity
 {

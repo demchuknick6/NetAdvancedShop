@@ -1,10 +1,13 @@
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext(builder.Configuration);
-builder.Services.AddInfrastructureServices();
-builder.Services.AddApplicationServices();
-builder.Services.AddWebUIServices();
-builder.Services.AddEventBus(builder.Configuration);
+builder.Services.AddDbContext(builder.Configuration)
+    .AddInfrastructureServices()
+    .AddApplicationServices()
+    .AddWebUIServices()
+    .AddSwagger(builder.Configuration)
+    .AddAuthentication(builder.Configuration)
+    .AddAuthorization(builder.Configuration)
+    .AddEventBus(builder.Configuration);
 
 var app = builder.Build();
 
@@ -14,8 +17,19 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
     app.UseMigrationsEndPoint();
 
+    var pathBase = builder.Configuration["PATH_BASE"];
+    if (!string.IsNullOrEmpty(pathBase))
+    {
+        app.UsePathBase(pathBase);
+    }
+
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "NetAdvancedShop.Catalog.WebUI v1");
+        c.OAuthClientId("catalogswaggerui");
+        c.OAuthAppName("Catalog Swagger UI");
+    });
 
     using var scope = app.Services.CreateScope();
     var dbContext = scope.ServiceProvider.GetRequiredService<CatalogContext>();
@@ -26,7 +40,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseRouting();
+app.UseCors("CorsPolicy");
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

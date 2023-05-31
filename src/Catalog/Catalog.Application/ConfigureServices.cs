@@ -1,4 +1,4 @@
-﻿namespace Catalog.Application;
+﻿namespace NetAdvancedShop.Catalog.Application;
 
 public static class ConfigureServices
 {

@@ -1,4 +1,4 @@
-﻿namespace Catalog.Application.IntegrationTests.Categories.Queries;
+﻿namespace NetAdvancedShop.Catalog.Application.IntegrationTests.Categories.Queries;
 
 public class GetCategoriesTests : ApplicationTests<CatalogApplicationFixture>
 {

@@ -1,4 +1,4 @@
-﻿namespace Catalog.Application.Categories.Commands.DeleteCategory;
+﻿namespace NetAdvancedShop.Catalog.Application.Categories.Commands.DeleteCategory;
 
 public record DeleteCategoryCommand(int Id) : IRequest<Unit>;
 

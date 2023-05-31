@@ -1,4 +1,4 @@
-﻿namespace Catalog.WebUI;
+﻿namespace NetAdvancedShop.Catalog.WebUI;
 
 public static class Constants
 {

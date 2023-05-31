@@ -1,2 +1,2 @@
-﻿global using Catalog.Domain.Common;
-global using Catalog.Domain.Exceptions;
+﻿global using NetAdvancedShop.Catalog.Domain.Common;
+global using NetAdvancedShop.Catalog.Domain.Exceptions;

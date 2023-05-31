@@ -1,4 +1,4 @@
-﻿namespace Catalog.WebUI.Models.Link;
+﻿namespace NetAdvancedShop.Catalog.WebUI.Models.Link;
 
 public class LinkedCollectionResourceDto<T> : ILinkResource where T : class, ILinkResource
 {

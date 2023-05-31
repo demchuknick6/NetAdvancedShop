@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Catalog.Infrastructure.Migrations
+namespace NetAdvancedShop.Catalog.Infrastructure.Migrations
 {
     /// <inheritdoc />
     public partial class Initial : Migration

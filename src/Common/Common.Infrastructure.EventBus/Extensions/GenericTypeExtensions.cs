@@ -1,4 +1,4 @@
-﻿namespace Common.Infrastructure.EventBus.Extensions;
+﻿namespace NetAdvancedShop.Common.Infrastructure.EventBus.Extensions;
 
 public static class GenericTypeExtensions
 {

@@ -1,4 +1,4 @@
-﻿namespace Catalog.Application.UnitTests.Common.Exceptions;
+﻿namespace NetAdvancedShop.Catalog.Application.UnitTests.Common.Exceptions;
 
 public class ValidationExceptionTests
 {

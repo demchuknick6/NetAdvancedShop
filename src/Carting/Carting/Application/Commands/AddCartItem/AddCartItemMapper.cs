@@ -1,4 +1,4 @@
-﻿namespace Carting.Application.Commands.AddCartItem;
+﻿namespace NetAdvancedShop.Carting.Application.Commands.AddCartItem;
 
 internal class AddCartItemMapper : IMapper<CartItem, AddCartItemDto>
 {

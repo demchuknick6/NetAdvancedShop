@@ -1,4 +1,4 @@
-﻿namespace Catalog.Infrastructure;
+﻿namespace NetAdvancedShop.Catalog.Infrastructure;
 
 public static class ConfigureServices
 {

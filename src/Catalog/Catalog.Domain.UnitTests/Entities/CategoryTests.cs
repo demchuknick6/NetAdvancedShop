@@ -1,4 +1,4 @@
-﻿namespace Catalog.Domain.UnitTests.Entities;
+﻿namespace NetAdvancedShop.Catalog.Domain.UnitTests.Entities;
 
 public class CategoryTests
 {

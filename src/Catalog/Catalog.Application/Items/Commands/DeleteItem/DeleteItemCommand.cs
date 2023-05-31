@@ -1,4 +1,4 @@
-﻿namespace Catalog.Application.Items.Commands.DeleteItem;
+﻿namespace NetAdvancedShop.Catalog.Application.Items.Commands.DeleteItem;
 
 public record DeleteItemCommand(int Id) : IRequest<Unit>;
 

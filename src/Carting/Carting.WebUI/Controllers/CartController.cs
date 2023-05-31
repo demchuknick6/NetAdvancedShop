@@ -1,7 +1,8 @@
-﻿namespace Carting.WebUI.Controllers;
+﻿namespace NetAdvancedShop.Carting.WebUI.Controllers;
 
 [ApiVersion("1.0")]
 [ApiVersion("2.0")]
+[Authorize(Roles = $"{Roles.Manager},{Roles.Buyer}")]
 public class CartController : ApiVersionedControllerBase
 {
     private readonly ISender _mediator;

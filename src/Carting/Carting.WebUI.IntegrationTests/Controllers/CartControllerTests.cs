@@ -1,10 +1,12 @@
-﻿namespace Carting.WebUI.IntegrationTests.Controllers;
+﻿namespace NetAdvancedShop.Carting.WebUI.IntegrationTests.Controllers;
 
 public class CartControllerTests : WebTests<CartingServiceFixture>
 {
-    [Test]
-    public async Task GetCartV1_ReturnsOk200()
+    [TestCase(TestUserIdentifiers.Manager)]
+    [TestCase(TestUserIdentifiers.Buyer)]
+    public async Task GetCartV1_UserIsAuthorized_ReturnsOk200(string userId)
     {
+        Fixture.CartV1.AddUserIdentifier(userId);
         Fixture.MediatorMock.SetupSendReturns(Array.Empty<CartItemDto>() as IReadOnlyCollection<CartItemDto>);
         var cartId = Fixture.RandomId;
 
@@ -22,8 +24,25 @@ public class CartControllerTests : WebTests<CartingServiceFixture>
     }
 
     [Test]
-    public async Task GetCartV2_ReturnsOk200()
+    public async Task GetCartV1_UserIsUnauthorized_ReturnsUnauthorized401()
     {
+        var cartId = Fixture.RandomId;
+
+        var response = await Fixture.CartV1.GetAsync($"{cartId}");
+
+        response.StatusCode
+            .Should()
+            .Be(HttpStatusCode.Unauthorized);
+        Fixture.SentRequests
+            .Should()
+            .BeEmpty();
+    }
+
+    [TestCase(TestUserIdentifiers.Manager)]
+    [TestCase(TestUserIdentifiers.Buyer)]
+    public async Task GetCartV2_UserIsAuthorized_ReturnsOk200(string userId)
+    {
+        Fixture.CartV2.AddUserIdentifier(userId);
         Fixture.MediatorMock.SetupSendReturns(Array.Empty<CartItemDto>() as IReadOnlyCollection<CartItemDto>);
         var cartId = Fixture.RandomId;
 
@@ -41,8 +60,25 @@ public class CartControllerTests : WebTests<CartingServiceFixture>
     }
 
     [Test]
-    public async Task AddCartItemV1_ReturnsOk200()
+    public async Task GetCartV2_UserIsUnauthorized_ReturnsUnauthorized401()
     {
+        var cartId = Fixture.RandomId;
+
+        var response = await Fixture.CartV2.GetAsync($"{cartId}");
+
+        response.StatusCode
+            .Should()
+            .Be(HttpStatusCode.Unauthorized);
+        Fixture.SentRequests
+            .Should()
+            .BeEmpty();
+    }
+
+    [TestCase(TestUserIdentifiers.Manager)]
+    [TestCase(TestUserIdentifiers.Buyer)]
+    public async Task AddCartItemV1_UserIsAuthorized_ReturnsOk200(string userId)
+    {
+        Fixture.CartV1.AddUserIdentifier(userId);
         Fixture.MediatorMock.SetupSendReturns(Unit.Value);
         var cartId = Fixture.RandomId;
         var model = AddCartItemModel();
@@ -66,8 +102,26 @@ public class CartControllerTests : WebTests<CartingServiceFixture>
     }
 
     [Test]
-    public async Task AddCartItemV2_ReturnsOk200()
+    public async Task AddCartItemV1_UserIsUnauthorized_ReturnsUnauthorized401()
     {
+        var cartId = Fixture.RandomId;
+        var model = AddCartItemModel();
+
+        var response = await Fixture.CartV1.PostAsJsonAsync($"{cartId}/items", model);
+
+        response.StatusCode
+            .Should()
+            .Be(HttpStatusCode.Unauthorized);
+        Fixture.SentRequests
+            .Should()
+            .BeEmpty();
+    }
+
+    [TestCase(TestUserIdentifiers.Manager)]
+    [TestCase(TestUserIdentifiers.Buyer)]
+    public async Task AddCartItemV2_UserIsAuthorized_ReturnsOk200(string userId)
+    {
+        Fixture.CartV2.AddUserIdentifier(userId);
         Fixture.MediatorMock.SetupSendReturns(Unit.Value);
         var cartId = Fixture.RandomId;
         var model = AddCartItemModel();
@@ -91,8 +145,26 @@ public class CartControllerTests : WebTests<CartingServiceFixture>
     }
 
     [Test]
-    public async Task RemoveCartItemV1_ReturnsOk200()
+    public async Task AddCartItemV2_UserIsUnauthorized_ReturnsUnauthorized401()
     {
+        var cartId = Fixture.RandomId;
+        var model = AddCartItemModel();
+
+        var response = await Fixture.CartV2.PostAsJsonAsync($"{cartId}/items", model);
+
+        response.StatusCode
+            .Should()
+            .Be(HttpStatusCode.Unauthorized);
+        Fixture.SentRequests
+            .Should()
+            .BeEmpty();
+    }
+
+    [TestCase(TestUserIdentifiers.Manager)]
+    [TestCase(TestUserIdentifiers.Buyer)]
+    public async Task RemoveCartItemV1_UserIsAuthorized_ReturnsOk200(string userId)
+    {
+        Fixture.CartV1.AddUserIdentifier(userId);
         Fixture.MediatorMock.SetupSendReturns(Unit.Value);
         var cartId = Fixture.RandomId;
         var itemId = Fixture.RandomInt;
@@ -109,8 +181,26 @@ public class CartControllerTests : WebTests<CartingServiceFixture>
     }
 
     [Test]
-    public async Task RemoveCartItemV2_ReturnsOk200()
+    public async Task RemoveCartItemV1_UserIsUnauthorized_ReturnsUnauthorized401()
     {
+        var cartId = Fixture.RandomId;
+        var itemId = Fixture.RandomInt;
+
+        var response = await Fixture.CartV1.DeleteAsync($"{cartId}/items/{itemId}");
+
+        response.StatusCode
+            .Should()
+            .Be(HttpStatusCode.Unauthorized);
+        Fixture.SentRequests
+            .Should()
+            .BeEmpty();
+    }
+
+    [TestCase(TestUserIdentifiers.Manager)]
+    [TestCase(TestUserIdentifiers.Buyer)]
+    public async Task RemoveCartItemV2_UserIsAuthorized_ReturnsOk200(string userId)
+    {
+        Fixture.CartV2.AddUserIdentifier(userId);
         Fixture.MediatorMock.SetupSendReturns(Unit.Value);
         var cartId = Fixture.RandomId;
         var itemId = Fixture.RandomInt;
@@ -124,6 +214,22 @@ public class CartControllerTests : WebTests<CartingServiceFixture>
             .ContainSingle()
             .And
             .ContainSameTo(new RemoveCartItemCommand(cartId, itemId));
+    }
+
+    [Test]
+    public async Task RemoveCartItemV2_UserIsUnauthorized_ReturnsUnauthorized401()
+    {
+        var cartId = Fixture.RandomId;
+        var itemId = Fixture.RandomInt;
+
+        var response = await Fixture.CartV2.DeleteAsync($"{cartId}/items/{itemId}");
+
+        response.StatusCode
+            .Should()
+            .Be(HttpStatusCode.Unauthorized);
+        Fixture.SentRequests
+            .Should()
+            .BeEmpty();
     }
 
     private AddCartItemModel AddCartItemModel() =>

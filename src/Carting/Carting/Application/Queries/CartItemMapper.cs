@@ -1,4 +1,4 @@
-﻿namespace Carting.Application.Queries;
+﻿namespace NetAdvancedShop.Carting.Application.Queries;
 
 internal class CartItemMapper : IMapper<CartItemDto, CartItem>
 {

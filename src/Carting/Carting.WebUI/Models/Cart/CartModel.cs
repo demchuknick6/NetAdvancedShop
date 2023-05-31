@@ -1,4 +1,4 @@
-﻿namespace Carting.WebUI.Models.Cart;
+﻿namespace NetAdvancedShop.Carting.WebUI.Models.Cart;
 
 public class CartModel
 {

@@ -4,8 +4,8 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <AssemblyName>$(MSBuildProjectName)</AssemblyName>
-    <RootNamespace>$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+    <AssemblyName>NetAdvancedShop.Catalog.WebUI</AssemblyName>
+    <RootNamespace>NetAdvancedShop.Catalog.WebUI</RootNamespace>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
@@ -18,6 +18,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
@@ -28,6 +29,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Common.Infrastructure.EventBus.RabbitMQ\Common.Infrastructure.EventBus.RabbitMQ.csproj" />
+    <ProjectReference Include="..\..\Common\Common.Rbac\Common.Rbac.csproj" />
     <ProjectReference Include="..\..\Common\Common.WebUI\Common.WebUI.csproj" />
     <ProjectReference Include="..\Catalog.Application.ApplicationEvents\Catalog.Application.ApplicationEvents.csproj" />
     <ProjectReference Include="..\Catalog.Infrastructure\Catalog.Infrastructure.csproj" />

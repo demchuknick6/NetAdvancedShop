@@ -1,4 +1,4 @@
-namespace Carting.WebUI.IntegrationTests.Endpoints;
+namespace NetAdvancedShop.Carting.WebUI.IntegrationTests.Endpoints;
 
 public class SwaggerFileTests : WebTests<CartingServiceFixture>
 {

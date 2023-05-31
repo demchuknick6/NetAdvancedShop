@@ -1,4 +1,4 @@
-﻿namespace Carting.Application.Commands.UpdateCartItem;
+﻿namespace NetAdvancedShop.Carting.Application.Commands.UpdateCartItem;
 
 public record UpdateCartItemCommand(int ItemId, UpdateCartItemDto Item) : IRequest<Unit>;
 

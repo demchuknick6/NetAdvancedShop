@@ -1,9 +1,13 @@
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddOptions(builder.Configuration);
-builder.Services.AddApplicationServices();
-builder.Services.AddWebUIServices();
-builder.Services.AddEventBus(builder.Configuration);
+builder.Services.AddSingleton<IAuthorizationMiddlewareResultHandler, TokenLoggingMiddleware>()
+    .AddOptions(builder.Configuration)
+    .AddApplicationServices()
+    .AddWebUIServices()
+    .AddSwagger(builder.Configuration)
+    .AddAuthentication(builder.Configuration)
+    .AddAuthorization(builder.Configuration)
+    .AddEventBus(builder.Configuration);
 
 var app = builder.Build();
 
@@ -12,21 +16,32 @@ if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
 
+    var pathBase = builder.Configuration["PATH_BASE"];
+
+    if (!string.IsNullOrEmpty(pathBase))
+    {
+        app.UsePathBase(pathBase);
+    }
+
     app.UseSwagger();
     app.UseSwaggerUI(c=>
     {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Carting.WebUI v1");
-        c.SwaggerEndpoint("/swagger/v2/swagger.json", "Carting.WebUI v2");
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "NetAdvancedShop.Carting.WebUI v1");
+        c.SwaggerEndpoint("/swagger/v2/swagger.json", "NetAdvancedShop.Carting.WebUI v2");
+        c.OAuthClientId("cartingswaggerui");
+        c.OAuthAppName("Carting Swagger UI");
     });
 }
 
 app.UseHttpsRedirection();
-
+app.UseRouting();
+app.UseCors("CorsPolicy");
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
 
-ConfigureEventBus(app);
+//ConfigureEventBus(app);
 
 app.Run();
 

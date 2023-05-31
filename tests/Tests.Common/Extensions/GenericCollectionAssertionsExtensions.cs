@@ -1,4 +1,4 @@
-namespace Tests.Common.Extensions;
+namespace NetAdvancedShop.Tests.Common.Extensions;
 
 public static class GenericCollectionAssertionsExtensions
 {

@@ -1,4 +1,4 @@
-﻿namespace Carting;
+﻿namespace NetAdvancedShop.Carting;
 
 public class CartingSettings
 {

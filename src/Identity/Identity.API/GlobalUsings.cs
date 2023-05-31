@@ -1,0 +1,17 @@
+﻿global using System.IdentityModel.Tokens.Jwt;
+global using System.Security.Claims;
+global using Duende.IdentityServer;
+global using Duende.IdentityServer.AspNetIdentity;
+global using Duende.IdentityServer.Extensions;
+global using Duende.IdentityServer.Models;
+global using Duende.IdentityServer.Test;
+global using IdentityModel;
+global using Microsoft.AspNetCore.Identity;
+global using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore;
+global using NetAdvancedShop.Identity.API.Configuration;
+global using NetAdvancedShop.Identity.API.Domain.Entries;
+global using NetAdvancedShop.Identity.API.Extensions;
+global using NetAdvancedShop.Identity.API.Infrastructure;
+global using NetAdvancedShop.Identity.API.Infrastructure.DataSeeding;
+global using NetAdvancedShop.Identity.API.Services;

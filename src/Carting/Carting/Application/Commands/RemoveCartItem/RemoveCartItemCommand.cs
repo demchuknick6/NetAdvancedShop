@@ -1,4 +1,4 @@
-﻿namespace Carting.Application.Commands.RemoveCartItem;
+﻿namespace NetAdvancedShop.Carting.Application.Commands.RemoveCartItem;
 
 public record RemoveCartItemCommand(Guid CartId, int ItemId) : IRequest<Unit>;
 

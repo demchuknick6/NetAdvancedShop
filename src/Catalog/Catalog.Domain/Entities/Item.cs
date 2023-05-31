@@ -1,4 +1,4 @@
-﻿namespace Catalog.Domain.Entities;
+﻿namespace NetAdvancedShop.Catalog.Domain.Entities;
 
 public class Item : BaseEntity
 {

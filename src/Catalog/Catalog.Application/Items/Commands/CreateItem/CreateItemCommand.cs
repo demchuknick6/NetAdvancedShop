@@ -1,4 +1,4 @@
-﻿namespace Catalog.Application.Items.Commands.CreateItem;
+﻿namespace NetAdvancedShop.Catalog.Application.Items.Commands.CreateItem;
 
 public record CreateItemCommand(string Name, string? Description, string? ImageUri,
     int CategoryId, decimal Price, uint Amount) : IRequest<int>;

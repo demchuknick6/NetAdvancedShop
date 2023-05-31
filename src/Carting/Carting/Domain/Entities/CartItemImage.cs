@@ -1,4 +1,4 @@
-﻿namespace Carting.Domain.Entities;
+﻿namespace NetAdvancedShop.Carting.Domain.Entities;
 
 public class CartItemImage
 {

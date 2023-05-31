@@ -1,4 +1,4 @@
-﻿namespace Catalog.WebUI.Models.Category;
+﻿namespace NetAdvancedShop.Catalog.WebUI.Models.Category;
 
 public class CategoryResourceDto : CategoryDto, ILinkResource
 {

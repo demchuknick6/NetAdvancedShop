@@ -1,4 +1,4 @@
-﻿namespace Common.Infrastructure.EventBus;
+﻿namespace NetAdvancedShop.Common.Infrastructure.EventBus;
 
 public interface IEventBusSubscriptionsManager
 {

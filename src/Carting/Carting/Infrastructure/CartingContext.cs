@@ -1,4 +1,4 @@
-﻿namespace Carting.Infrastructure;
+﻿namespace NetAdvancedShop.Carting.Infrastructure;
 
 public class CartingContext : IDisposable
 {

@@ -1,4 +1,4 @@
-﻿namespace Catalog.Application.IntegrationTests.Items.Queries;
+﻿namespace NetAdvancedShop.Catalog.Application.IntegrationTests.Items.Queries;
 
 public class GetItemByIdTests : ApplicationTests<CatalogApplicationFixture>
 {

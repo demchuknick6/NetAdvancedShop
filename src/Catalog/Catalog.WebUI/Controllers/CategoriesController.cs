@@ -1,4 +1,4 @@
-﻿namespace Catalog.WebUI.Controllers;
+﻿namespace NetAdvancedShop.Catalog.WebUI.Controllers;
 
 public class CategoriesController : ApiControllerBase
 {
@@ -32,12 +32,14 @@ public class CategoriesController : ApiControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles = Roles.Manager)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<int> Create(CreateCategoryModel model) =>
         await _mediator.Send(new CreateCategoryCommand(model.Name, model.ImageUri, model.ParentCategoryId));
 
     [HttpPut("{id}")]
+    [Authorize(Roles = Roles.Manager)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesDefaultResponseType]
@@ -45,6 +47,7 @@ public class CategoriesController : ApiControllerBase
         await _mediator.Send(new UpdateCategoryCommand(id, model.Name, model.ImageUri, model.ParentCategoryId));
 
     [HttpDelete("{id}")]
+    [Authorize(Roles = Roles.Manager)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesDefaultResponseType]
     public async Task Delete(int id) => await _mediator.Send(new DeleteCategoryCommand(id));

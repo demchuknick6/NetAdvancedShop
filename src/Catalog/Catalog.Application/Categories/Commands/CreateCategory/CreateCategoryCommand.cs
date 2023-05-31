@@ -1,4 +1,4 @@
-﻿namespace Catalog.Application.Categories.Commands.CreateCategory;
+﻿namespace NetAdvancedShop.Catalog.Application.Categories.Commands.CreateCategory;
 
 public record CreateCategoryCommand(string Name, string? ImageUri, int? ParentCategoryId) : IRequest<int>;
 

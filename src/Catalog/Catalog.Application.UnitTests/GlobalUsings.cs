@@ -1,10 +1,10 @@
 ﻿global using System.Runtime.Serialization;
 global using AutoMapper;
-global using Catalog.Application.Categories.Queries;
-global using Catalog.Application.Common.Mappings;
-global using Catalog.Application.Items.Queries;
-global using Catalog.Domain.Entities;
-global using Common.Application.Exceptions;
 global using FluentAssertions;
 global using FluentValidation.Results;
+global using NetAdvancedShop.Catalog.Application.Categories.Queries;
+global using NetAdvancedShop.Catalog.Application.Common.Mappings;
+global using NetAdvancedShop.Catalog.Application.Items.Queries;
+global using NetAdvancedShop.Catalog.Domain.Entities;
+global using NetAdvancedShop.Common.Application.Exceptions;
 global using NUnit.Framework;

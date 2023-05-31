@@ -1,4 +1,4 @@
-﻿namespace Catalog.Application.Common.Validation;
+﻿namespace NetAdvancedShop.Catalog.Application.Common.Validation;
 
 internal static class ValidationExtensions
 {

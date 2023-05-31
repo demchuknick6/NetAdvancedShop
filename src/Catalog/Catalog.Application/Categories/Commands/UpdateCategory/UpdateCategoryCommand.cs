@@ -1,4 +1,4 @@
-﻿namespace Catalog.Application.Categories.Commands.UpdateCategory;
+﻿namespace NetAdvancedShop.Catalog.Application.Categories.Commands.UpdateCategory;
 
 public record UpdateCategoryCommand(int Id, string Name, string? ImageUri, int? ParentCategoryId) : IRequest<Unit>;
 

@@ -1,4 +1,4 @@
-﻿namespace Catalog.Infrastructure;
+﻿namespace NetAdvancedShop.Catalog.Infrastructure;
 
 public class CatalogContext : DbContext, ICatalogContext
 {

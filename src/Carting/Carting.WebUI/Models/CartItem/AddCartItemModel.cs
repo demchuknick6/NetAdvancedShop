@@ -1,4 +1,4 @@
-﻿namespace Carting.WebUI.Models.CartItem;
+﻿namespace NetAdvancedShop.Carting.WebUI.Models.CartItem;
 
 public class AddCartItemModel
 {

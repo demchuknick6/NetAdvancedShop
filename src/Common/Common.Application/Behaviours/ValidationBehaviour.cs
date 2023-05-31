@@ -1,4 +1,4 @@
-﻿namespace Common.Application.Behaviours;
+﻿namespace NetAdvancedShop.Common.Application.Behaviours;
 
 public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
      where TRequest : notnull

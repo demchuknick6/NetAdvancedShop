@@ -2,8 +2,8 @@
 
    <PropertyGroup>
       <TargetFramework>net7.0</TargetFramework>
-      <RootNamespace>Carting</RootNamespace>
-      <AssemblyName>Carting</AssemblyName>
+      <RootNamespace>NetAdvancedShop.Carting</RootNamespace>
+      <AssemblyName>NetAdvancedShop.Carting</AssemblyName>
       <ImplicitUsings>enable</ImplicitUsings>
       <Nullable>enable</Nullable>
    </PropertyGroup>

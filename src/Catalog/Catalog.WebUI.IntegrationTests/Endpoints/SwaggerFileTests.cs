@@ -1,4 +1,4 @@
-namespace Catalog.WebUI.IntegrationTests.Endpoints;
+namespace NetAdvancedShop.Catalog.WebUI.IntegrationTests.Endpoints;
 
 public class SwaggerFileTests : WebTests<CatalogServiceFixture>
 {

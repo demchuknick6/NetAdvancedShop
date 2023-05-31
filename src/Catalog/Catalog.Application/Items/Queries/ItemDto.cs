@@ -1,4 +1,4 @@
-﻿namespace Catalog.Application.Items.Queries;
+﻿namespace NetAdvancedShop.Catalog.Application.Items.Queries;
 
 public class ItemDto : IMapFrom<Item>
 {

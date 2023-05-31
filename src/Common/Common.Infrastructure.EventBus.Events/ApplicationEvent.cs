@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Common.Infrastructure.EventBus.Events;
+namespace NetAdvancedShop.Common.Infrastructure.EventBus.Events;
 
 public record ApplicationEvent
 {

@@ -1,4 +1,4 @@
-﻿namespace Tests.Common.ApplicationTests;
+﻿namespace NetAdvancedShop.Tests.Common.ApplicationTests;
 
 public abstract class ApplicationFixture<TDbContext> : ApplicationFixture where TDbContext : DbContext
 {

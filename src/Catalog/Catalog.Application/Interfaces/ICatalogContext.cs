@@ -1,4 +1,4 @@
-﻿namespace Catalog.Application.Interfaces;
+﻿namespace NetAdvancedShop.Catalog.Application.Interfaces;
 
 public interface ICatalogContext
 {

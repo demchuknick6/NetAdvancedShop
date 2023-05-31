@@ -1,4 +1,4 @@
-﻿namespace Catalog.Application.UnitTests.Common.Mappings;
+﻿namespace NetAdvancedShop.Catalog.Application.UnitTests.Common.Mappings;
 
 public class MappingTests
 {

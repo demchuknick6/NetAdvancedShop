@@ -1,4 +1,4 @@
-﻿namespace Carting.WebUI.IntegrationTests.ApplicationEvents.EventHandling;
+﻿namespace NetAdvancedShop.Carting.WebUI.IntegrationTests.ApplicationEvents.EventHandling;
 
 public class ItemChangedApplicationEventHandlerTests : WebTests<CartingServiceFixture>
 {

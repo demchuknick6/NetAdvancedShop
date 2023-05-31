@@ -1,4 +1,4 @@
-﻿namespace Catalog.Application.Items.Commands.CreateItem;
+﻿namespace NetAdvancedShop.Catalog.Application.Items.Commands.CreateItem;
 
 public class CreateItemCommandValidator : AbstractValidator<CreateItemCommand>
 {

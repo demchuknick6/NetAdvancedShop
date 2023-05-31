@@ -1,4 +1,4 @@
-﻿namespace Carting.Application.IntegrationTests;
+﻿namespace NetAdvancedShop.Carting.Application.IntegrationTests;
 
 public class CartingApplicationFixture : ApplicationFixture
 {

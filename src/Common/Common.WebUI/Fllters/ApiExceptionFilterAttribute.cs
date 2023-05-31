@@ -1,6 +1,6 @@
-﻿using ValidationException = Common.Application.Exceptions.ValidationException;
+﻿using ValidationException = NetAdvancedShop.Common.Application.Exceptions.ValidationException;
 
-namespace Common.WebUI.Fllters;
+namespace NetAdvancedShop.Common.WebUI.Fllters;
 
 public class ApiExceptionFilterAttribute : ExceptionFilterAttribute
 {

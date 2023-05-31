@@ -1,4 +1,4 @@
-﻿namespace Tests.Common.WebTests;
+﻿namespace NetAdvancedShop.Tests.Common.WebTests;
 
 public class RestApiFixture<TProgram> : ProgramFixture<TProgram> where TProgram : class
 {
@@ -44,8 +44,12 @@ public class RestApiFixture<TProgram> : ProgramFixture<TProgram> where TProgram 
         var client = CreateClient(
             new WebApplicationFactoryClientOptions
             {
-                BaseAddress = new Uri(HttpsBaseUri, $"api/{basePath}/")
+                BaseAddress = new Uri(HttpsBaseUri, $"api/{basePath}/"),
+                AllowAutoRedirect = false
             });
+
+        client.DefaultRequestHeaders.Authorization =
+            new AuthenticationHeaderValue(scheme: TestAuthHandler.AuthenticationScheme);
 
         return client;
     }
@@ -63,11 +67,16 @@ public class RestApiFixture<TProgram> : ProgramFixture<TProgram> where TProgram 
         services.Replace(ServiceDescriptor.Singleton(MediatorMock.Object));
         services.Replace(ServiceDescriptor.Singleton(RabbitMQPersistentConnectionMock.Object));
         services.Replace(ServiceDescriptor.Singleton(EventBusMock.Object));
+
+        services.AddAuthentication(defaultScheme: TestAuthHandler.AuthenticationScheme)
+            .AddScheme<AuthenticationSchemeOptions, TestAuthHandler>(
+                TestAuthHandler.AuthenticationScheme, _ => { });
     }
 
     protected override Task CleanUp()
     {
         MediatorMock.Reset();
+        EventBusMock.Reset();
         return base.CleanUp();
     }
 }

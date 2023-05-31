@@ -1,4 +1,4 @@
-﻿namespace Catalog.WebUI.ApplicationEvents;
+﻿namespace NetAdvancedShop.Catalog.WebUI.ApplicationEvents;
 
 public class CatalogApplicationEventService : ICatalogApplicationEventService
 {

@@ -1,4 +1,4 @@
-namespace Catalog.Application.Common.Mappings;
+namespace NetAdvancedShop.Catalog.Application.Common.Mappings;
 
 public class MappingProfile : Profile
 {

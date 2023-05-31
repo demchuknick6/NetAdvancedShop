@@ -1,6 +1,6 @@
-﻿using Common.Infrastructure.EventBus.Events;
+﻿using NetAdvancedShop.Common.Infrastructure.EventBus.Events;
 
-namespace Catalog.Application.ApplicationEvents;
+namespace NetAdvancedShop.Catalog.Application.ApplicationEvents;
 
 public record ItemChangedApplicationEvent : ApplicationEvent
 {

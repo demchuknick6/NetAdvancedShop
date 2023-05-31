@@ -54,13 +54,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.WebUI", "src\Common\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carting.WebUI.IntegrationTests", "src\Carting\Carting.WebUI.IntegrationTests\Carting.WebUI.IntegrationTests.csproj", "{1393FF95-6DA2-4FC9-8A60-600F9878CC54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Application.ApplicationEvents", "src\Catalog\Catalog.Application.ApplicationEvents\Catalog.Application.ApplicationEvents.csproj", "{551E9BCA-9135-4AC7-A13C-7E78AF9FB27F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Application.ApplicationEvents", "src\Catalog\Catalog.Application.ApplicationEvents\Catalog.Application.ApplicationEvents.csproj", "{551E9BCA-9135-4AC7-A13C-7E78AF9FB27F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Infrastructure.EventBus", "src\Common\Common.Infrastructure.EventBus\Common.Infrastructure.EventBus.csproj", "{52E8436F-91DA-4A00-B0B4-90DE0960C7B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Infrastructure.EventBus", "src\Common\Common.Infrastructure.EventBus\Common.Infrastructure.EventBus.csproj", "{52E8436F-91DA-4A00-B0B4-90DE0960C7B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Infrastructure.EventBus.Events", "src\Common\Common.Infrastructure.EventBus.Events\Common.Infrastructure.EventBus.Events.csproj", "{86218352-AEE3-4266-8C37-67EB9B14C25C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Infrastructure.EventBus.Events", "src\Common\Common.Infrastructure.EventBus.Events\Common.Infrastructure.EventBus.Events.csproj", "{86218352-AEE3-4266-8C37-67EB9B14C25C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Infrastructure.EventBus.RabbitMQ", "src\Common\Common.Infrastructure.EventBus.RabbitMQ\Common.Infrastructure.EventBus.RabbitMQ.csproj", "{C7FE2D86-1B87-49FF-AF8A-13E9A47F4D9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Infrastructure.EventBus.RabbitMQ", "src\Common\Common.Infrastructure.EventBus.RabbitMQ\Common.Infrastructure.EventBus.RabbitMQ.csproj", "{C7FE2D86-1B87-49FF-AF8A-13E9A47F4D9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Rbac", "src\Common\Common.Rbac\Common.Rbac.csproj", "{B4437C33-3372-450A-94EB-053BBF6D91BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{CD7FFA77-F794-45F8-B1EF-AB0A6B1CE320}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.API", "src\Identity\Identity.API\Identity.API.csproj", "{EAD3C7FE-32FC-4312-B40C-7C4126C7492A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -144,6 +150,14 @@ Global
 		{C7FE2D86-1B87-49FF-AF8A-13E9A47F4D9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7FE2D86-1B87-49FF-AF8A-13E9A47F4D9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7FE2D86-1B87-49FF-AF8A-13E9A47F4D9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4437C33-3372-450A-94EB-053BBF6D91BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4437C33-3372-450A-94EB-053BBF6D91BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4437C33-3372-450A-94EB-053BBF6D91BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4437C33-3372-450A-94EB-053BBF6D91BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAD3C7FE-32FC-4312-B40C-7C4126C7492A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAD3C7FE-32FC-4312-B40C-7C4126C7492A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAD3C7FE-32FC-4312-B40C-7C4126C7492A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAD3C7FE-32FC-4312-B40C-7C4126C7492A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -173,6 +187,9 @@ Global
 		{52E8436F-91DA-4A00-B0B4-90DE0960C7B7} = {2A7ED64C-CE6A-49C3-9567-1E43D6527237}
 		{86218352-AEE3-4266-8C37-67EB9B14C25C} = {2A7ED64C-CE6A-49C3-9567-1E43D6527237}
 		{C7FE2D86-1B87-49FF-AF8A-13E9A47F4D9B} = {2A7ED64C-CE6A-49C3-9567-1E43D6527237}
+		{B4437C33-3372-450A-94EB-053BBF6D91BF} = {2A7ED64C-CE6A-49C3-9567-1E43D6527237}
+		{CD7FFA77-F794-45F8-B1EF-AB0A6B1CE320} = {62CEAD2C-93F6-48D7-89AB-F6B9889BA336}
+		{EAD3C7FE-32FC-4312-B40C-7C4126C7492A} = {CD7FFA77-F794-45F8-B1EF-AB0A6B1CE320}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {69599D0B-158F-4A68-BF2C-089305A2833D}

@@ -4,6 +4,8 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <AssemblyName>NetAdvancedShop.Catalog.Application.ApplicationEvents</AssemblyName>
+    <RootNamespace>NetAdvancedShop.Catalog.Application.ApplicationEvents</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

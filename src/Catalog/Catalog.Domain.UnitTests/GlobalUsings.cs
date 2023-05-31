@@ -1,4 +1,4 @@
-﻿global using Catalog.Domain.Entities;
-global using Catalog.Domain.Exceptions;
-global using FluentAssertions;
+﻿global using FluentAssertions;
+global using NetAdvancedShop.Catalog.Domain.Entities;
+global using NetAdvancedShop.Catalog.Domain.Exceptions;
 global using NUnit.Framework;

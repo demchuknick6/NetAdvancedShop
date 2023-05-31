@@ -1,4 +1,4 @@
-﻿namespace Carting.WebUI.ApplicationEvents.EventHandling;
+﻿namespace NetAdvancedShop.Carting.WebUI.ApplicationEvents.EventHandling;
 
 public class ItemChangedApplicationEventHandler : IApplicationEventHandler<ItemChangedApplicationEvent>
 {

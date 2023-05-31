@@ -1,4 +1,4 @@
-﻿namespace Common.Infrastructure.EventBus.RabbitMQ;
+﻿namespace NetAdvancedShop.Common.Infrastructure.EventBus.RabbitMQ;
 
 public interface IRabbitMQPersistentConnection : IDisposable
 {

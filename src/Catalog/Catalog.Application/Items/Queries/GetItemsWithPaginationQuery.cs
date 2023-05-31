@@ -1,4 +1,4 @@
-﻿namespace Catalog.Application.Items.Queries;
+﻿namespace NetAdvancedShop.Catalog.Application.Items.Queries;
 
 public record GetItemsWithPaginationQuery(int CategoryId, int PageNumber = 1, int PageSize = 10)
     : IRequest<PaginatedList<ItemDto>>;

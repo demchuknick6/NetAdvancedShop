@@ -5,6 +5,8 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <AssemblyName>NetAdvancedShop.Carting.WebUI</AssemblyName>
+    <RootNamespace>NetAdvancedShop.Carting.WebUI</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -16,8 +18,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.5" />
   </ItemGroup>
 
@@ -25,6 +28,7 @@
     <ProjectReference Include="..\..\Catalog\Catalog.Application.ApplicationEvents\Catalog.Application.ApplicationEvents.csproj" />
     <ProjectReference Include="..\..\Common\Common.Infrastructure.EventBus.RabbitMQ\Common.Infrastructure.EventBus.RabbitMQ.csproj" />
     <ProjectReference Include="..\..\Common\Common.Infrastructure.EventBus\Common.Infrastructure.EventBus.csproj" />
+    <ProjectReference Include="..\..\Common\Common.Rbac\Common.Rbac.csproj" />
     <ProjectReference Include="..\..\Common\Common.WebUI\Common.WebUI.csproj" />
     <ProjectReference Include="..\Carting\Carting.csproj" />
   </ItemGroup>

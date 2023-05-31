@@ -2,8 +2,8 @@
 
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
-        <RootNamespace>Catalog.Application</RootNamespace>
-        <AssemblyName>Catalog.Application</AssemblyName>
+        <RootNamespace>NetAdvancedShop.Catalog.Application</RootNamespace>
+        <AssemblyName>NetAdvancedShop.Catalog.Application</AssemblyName>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>

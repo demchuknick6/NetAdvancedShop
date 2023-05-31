@@ -1,6 +1,6 @@
-﻿using static Catalog.WebUI.Constants;
+﻿using static NetAdvancedShop.Catalog.WebUI.Constants;
 
-namespace Catalog.WebUI.Models.Category;
+namespace NetAdvancedShop.Catalog.WebUI.Models.Category;
 
 public class CreateCategoryModel
 {

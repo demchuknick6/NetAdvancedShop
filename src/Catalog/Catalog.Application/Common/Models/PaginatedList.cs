@@ -1,4 +1,4 @@
-﻿namespace Catalog.Application.Common.Models;
+﻿namespace NetAdvancedShop.Catalog.Application.Common.Models;
 
 public class PaginatedList<T>
 {

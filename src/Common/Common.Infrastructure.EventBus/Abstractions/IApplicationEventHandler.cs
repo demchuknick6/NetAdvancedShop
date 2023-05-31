@@ -1,4 +1,4 @@
-﻿namespace Common.Infrastructure.EventBus.Abstractions;
+﻿namespace NetAdvancedShop.Common.Infrastructure.EventBus.Abstractions;
 
 public interface IApplicationEventHandler<in TApplicationEvent> : IApplicationEventHandler
     where TApplicationEvent : ApplicationEvent

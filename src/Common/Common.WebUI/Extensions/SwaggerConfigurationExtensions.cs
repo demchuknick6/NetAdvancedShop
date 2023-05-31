@@ -1,4 +1,4 @@
-﻿namespace Common.WebUI.Extensions;
+﻿namespace NetAdvancedShop.Common.WebUI.Extensions;
 
 public static class SwaggerConfigurationExtensions
 {

@@ -1,4 +1,4 @@
-﻿namespace Catalog.Domain.Exceptions;
+﻿namespace NetAdvancedShop.Catalog.Domain.Exceptions;
 
 public class CatalogDomainException : Exception
 {

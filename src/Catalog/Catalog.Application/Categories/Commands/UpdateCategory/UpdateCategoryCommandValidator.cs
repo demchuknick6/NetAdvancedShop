@@ -1,4 +1,4 @@
-﻿namespace Catalog.Application.Categories.Commands.UpdateCategory;
+﻿namespace NetAdvancedShop.Catalog.Application.Categories.Commands.UpdateCategory;
 
 public class UpdateCategoryCommandValidator : AbstractValidator<UpdateCategoryCommand>
 {

@@ -1,4 +1,4 @@
-﻿namespace Carting.Application.IntegrationTests.Queries;
+﻿namespace NetAdvancedShop.Carting.Application.IntegrationTests.Queries;
 
 public class GetCartItemsTests : ApplicationTests<CartingApplicationFixture>
 {

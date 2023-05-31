@@ -1,4 +1,4 @@
-﻿namespace Common.WebUI.Controllers;
+﻿namespace NetAdvancedShop.Common.WebUI.Controllers;
 
 [ApiController]
 [ApiExceptionFilter]

@@ -1,6 +1,6 @@
-﻿using static Catalog.WebUI.Constants;
+﻿using static NetAdvancedShop.Catalog.WebUI.Constants;
 
-namespace Catalog.WebUI.Models.Item;
+namespace NetAdvancedShop.Catalog.WebUI.Models.Item;
 
 public class CreateItemModel
 {

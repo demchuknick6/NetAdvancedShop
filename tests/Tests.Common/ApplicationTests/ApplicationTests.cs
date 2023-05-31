@@ -1,4 +1,4 @@
-﻿namespace Tests.Common.ApplicationTests;
+﻿namespace NetAdvancedShop.Tests.Common.ApplicationTests;
 
 public abstract class ApplicationTests<TFixture> where TFixture : IApplicationFixture, new()
 {

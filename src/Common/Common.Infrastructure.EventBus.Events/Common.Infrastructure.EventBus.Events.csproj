@@ -4,6 +4,8 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <AssemblyName>NetAdvancedShop.Common.Infrastructure.EventBus.Events</AssemblyName>
+    <RootNamespace>NetAdvancedShop.Common.Infrastructure.EventBus.Events</RootNamespace>
   </PropertyGroup>
 
 </Project>

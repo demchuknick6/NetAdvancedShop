@@ -1,4 +1,4 @@
-﻿namespace Tests.Common.WebTests;
+﻿namespace NetAdvancedShop.Tests.Common.WebTests;
 
 public abstract class ProgramFixture<TProgram> : WebApplicationFactory<TProgram>, IProgramFixture
     where TProgram : class

@@ -1,4 +1,4 @@
-﻿namespace Catalog.Application.IntegrationTests;
+﻿namespace NetAdvancedShop.Catalog.Application.IntegrationTests;
 
 public class CatalogApplicationFixture : ApplicationFixture<CatalogContext>
 {

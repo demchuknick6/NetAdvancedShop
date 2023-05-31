@@ -1,4 +1,4 @@
-﻿namespace Catalog.Application.IntegrationTests.Categories.Commands;
+﻿namespace NetAdvancedShop.Catalog.Application.IntegrationTests.Categories.Commands;
 
 public class UpdateCategoryTests : ApplicationTests<CatalogApplicationFixture>
 {

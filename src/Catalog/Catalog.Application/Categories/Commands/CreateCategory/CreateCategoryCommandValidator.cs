@@ -1,4 +1,4 @@
-﻿namespace Catalog.Application.Categories.Commands.CreateCategory;
+﻿namespace NetAdvancedShop.Catalog.Application.Categories.Commands.CreateCategory;
 
 public class CreateCategoryCommandValidator : AbstractValidator<CreateCategoryCommand>
 {

@@ -1,4 +1,4 @@
-﻿namespace Catalog.WebUI.Controllers;
+﻿namespace NetAdvancedShop.Catalog.WebUI.Controllers;
 
 public class ItemsController : ApiControllerBase
 {
@@ -22,6 +22,7 @@ public class ItemsController : ApiControllerBase
         await _mediator.Send(new GetItemByIdQuery(id));
 
     [HttpPost]
+    [Authorize(Roles = Roles.Manager)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<int> Create(CreateItemModel model) =>
@@ -29,6 +30,7 @@ public class ItemsController : ApiControllerBase
             model.ImageUri, model.CategoryId, model.Price, model.Amount));
 
     [HttpPut("{id}")]
+    [Authorize(Roles = Roles.Manager)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesDefaultResponseType]
@@ -42,6 +44,7 @@ public class ItemsController : ApiControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Roles = Roles.Manager)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesDefaultResponseType]
     public async Task Delete(int id) => await _mediator.Send(new DeleteItemCommand(id));

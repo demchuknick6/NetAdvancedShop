@@ -1,4 +1,4 @@
-﻿namespace Carting.Application.Queries;
+﻿namespace NetAdvancedShop.Carting.Application.Queries;
 
 public class CartItemDto
 {

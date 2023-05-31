@@ -1,4 +1,4 @@
-﻿namespace Catalog.Application.Categories.Queries;
+﻿namespace NetAdvancedShop.Catalog.Application.Categories.Queries;
 
 public record GetCategoryByIdQuery(int Id) : IRequest<CategoryDto>;
 

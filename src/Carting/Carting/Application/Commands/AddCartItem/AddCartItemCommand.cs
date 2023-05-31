@@ -1,4 +1,4 @@
-﻿namespace Carting.Application.Commands.AddCartItem;
+﻿namespace NetAdvancedShop.Carting.Application.Commands.AddCartItem;
 
 public record AddCartItemCommand(Guid CartId, AddCartItemDto Item) : IRequest<Unit>;
 

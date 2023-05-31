@@ -1,4 +1,4 @@
-﻿namespace Catalog.Application.Items.Commands.UpdateItem;
+﻿namespace NetAdvancedShop.Catalog.Application.Items.Commands.UpdateItem;
 
 public record UpdateItemCommand(int Id, string Name, string? Description, string? ImageUri,
     int CategoryId, decimal Price, uint Amount) : IRequest<Unit>;

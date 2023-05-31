@@ -1,4 +1,4 @@
-﻿namespace Carting.Application.IntegrationTests.Commands;
+﻿namespace NetAdvancedShop.Carting.Application.IntegrationTests.Commands;
 
 public class UpdateCartitemTests : ApplicationTests<CartingApplicationFixture>
 {

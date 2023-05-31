@@ -1,4 +1,4 @@
-﻿namespace Catalog.WebUI.Extensions;
+﻿namespace NetAdvancedShop.Catalog.WebUI.Extensions;
 
 public static class ServiceCollectionExtensions
 {
@@ -8,9 +8,79 @@ public static class ServiceCollectionExtensions
         services.AddControllers();
 
         services.AddEndpointsApiExplorer();
+
+        services.AddCors(options =>
+        {
+            options.AddPolicy("CorsPolicy",
+                builder => builder
+                    .SetIsOriginAllowed((host) => true)
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+        });
+
+        return services;
+    }
+
+    public static IServiceCollection AddSwagger(this IServiceCollection services, IConfiguration configuration)
+    {
+        var identityUrlExternal = configuration.GetValue<string>("IdentityUrlExternal");
+
         services.AddSwaggerGen(c =>
         {
+            c.SwaggerDoc("v1", new OpenApiInfo { Version = "v1", Title = "NetAdvancedShop.Catalog.WebUI v1" });
             c.IncludeXmlCommentsFromAssemblyOf<Program>();
+
+            c.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+            {
+                Type = SecuritySchemeType.OAuth2,
+                Flows = new OpenApiOAuthFlows
+                {
+                    Implicit = new OpenApiOAuthFlow
+                    {
+                        AuthorizationUrl = new Uri($"{identityUrlExternal}/connect/authorize"),
+                        TokenUrl = new Uri($"{identityUrlExternal}/connect/token"),
+                        Scopes = new Dictionary<string, string>
+                        {
+                            { "catalog", "Catalog Service" }
+                        }
+                    }
+                }
+            });
+
+            c.OperationFilter<AuthorizeCheckOperationFilter>();
+        });
+
+        return services;
+    }
+
+    public static IServiceCollection AddAuthentication(this IServiceCollection services, IConfiguration configuration)
+    {
+        // prevent from mapping "sub" claim to nameidentifier.
+        JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("sub");
+
+        var identityUrl = configuration.GetValue<string>("IdentityUrl");
+
+        services.AddAuthentication("Bearer").AddJwtBearer(options =>
+        {
+            options.Authority = identityUrl;
+            options.RequireHttpsMetadata = false;
+            options.Audience = "catalog";
+            options.TokenValidationParameters.ValidateAudience = false;
+        });
+
+        return services;
+    }
+
+    public static IServiceCollection AddAuthorization(this IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddAuthorization(options =>
+        {
+            options.AddPolicy("ApiScope", policy =>
+            {
+                policy.RequireAuthenticatedUser();
+                policy.RequireClaim("scope", "catalog");
+            });
         });
 
         return services;
