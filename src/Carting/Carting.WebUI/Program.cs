@@ -41,7 +41,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-//ConfigureEventBus(app);
+ConfigureEventBus(app);
 
 app.Run();
 
@@ -53,6 +53,5 @@ static void ConfigureEventBus(IApplicationBuilder app)
 
 public partial class Program
 {
-    public static string? Namespace = typeof(Program).Namespace;
-    public static string? AppName = Namespace?.Substring(Namespace.LastIndexOf('.', Namespace.LastIndexOf('.') - 1) + 1);
+    public static string? AppName = "NetAdvancedShop.Carting.WebUI";
 }

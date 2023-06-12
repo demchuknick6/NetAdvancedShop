@@ -51,6 +51,5 @@ app.Run();
 
 public partial class Program
 {
-    public static string? Namespace = typeof(Program).Namespace;
-    public static string? AppName = Namespace?.Substring(Namespace.LastIndexOf('.', Namespace.LastIndexOf('.') - 1) + 1);
+    public static string? AppName = "NetAdvancedShop.Catalog.WebUI";
 }

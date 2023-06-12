@@ -11,7 +11,7 @@ public class ApplicationDbContextSeed
 	static class UserNames
 	{
         internal const string Manager = "manager";
-		internal const string Buyer = "Buyer";
+		internal const string Buyer = "buyer";
     }
 
 	const string DefaultPassword = "Pass@word1";

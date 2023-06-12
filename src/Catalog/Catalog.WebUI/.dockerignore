@@ -1,0 +1,16 @@
+**/.classpath
+**/.dockerignore
+**/.git
+**/.gitignore
+**/.vs
+**/.vscode
+**/*.*proj.user
+**/*.jwk
+**/azds.yaml
+**/bin
+**/charts
+**/Dockerfile
+**/keys
+**/obj
+**/secrets.dev.yaml
+**/values.dev.yaml

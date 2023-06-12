@@ -62,11 +62,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Infrastructure.Event
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Infrastructure.EventBus.RabbitMQ", "src\Common\Common.Infrastructure.EventBus.RabbitMQ\Common.Infrastructure.EventBus.RabbitMQ.csproj", "{C7FE2D86-1B87-49FF-AF8A-13E9A47F4D9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Rbac", "src\Common\Common.Rbac\Common.Rbac.csproj", "{B4437C33-3372-450A-94EB-053BBF6D91BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Rbac", "src\Common\Common.Rbac\Common.Rbac.csproj", "{B4437C33-3372-450A-94EB-053BBF6D91BF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{CD7FFA77-F794-45F8-B1EF-AB0A6B1CE320}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.API", "src\Identity\Identity.API\Identity.API.csproj", "{EAD3C7FE-32FC-4312-B40C-7C4126C7492A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identity.API", "src\Identity\Identity.API\Identity.API.csproj", "{EAD3C7FE-32FC-4312-B40C-7C4126C7492A}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{75A28646-D69A-454B-AF3B-A0766921C160}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -158,6 +160,10 @@ Global
 		{EAD3C7FE-32FC-4312-B40C-7C4126C7492A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EAD3C7FE-32FC-4312-B40C-7C4126C7492A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EAD3C7FE-32FC-4312-B40C-7C4126C7492A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75A28646-D69A-454B-AF3B-A0766921C160}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75A28646-D69A-454B-AF3B-A0766921C160}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75A28646-D69A-454B-AF3B-A0766921C160}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75A28646-D69A-454B-AF3B-A0766921C160}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -14,7 +14,8 @@ public class EventBusRabbitMQ : IEventBus, IDisposable
     private string? _queueName;
 
     public EventBusRabbitMQ(IRabbitMQPersistentConnection persistentConnection, ILogger<EventBusRabbitMQ> logger,
-        IServiceProvider serviceProvider, IEventBusSubscriptionsManager? subsManager, string? queueName = null, int retryCount = 5)
+        IServiceProvider serviceProvider, IEventBusSubscriptionsManager? subsManager, string? queueName = null,
+        int retryCount = 5)
     {
         _persistentConnection = persistentConnection ?? throw new ArgumentNullException(nameof(persistentConnection));
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
@@ -54,10 +55,12 @@ public class EventBusRabbitMQ : IEventBus, IDisposable
 
         var policy = Policy.Handle<BrokerUnreachableException>()
             .Or<SocketException>()
-            .WaitAndRetry(_retryCount, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)), (ex, time) =>
-            {
-                _logger.LogWarning(ex, "Could not publish event: {EventId} after {Timeout}s ({ExceptionMessage})", @event.Id, $"{time.TotalSeconds:n1}", ex.Message);
-            });
+            .WaitAndRetry(_retryCount, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)),
+                (ex, time) =>
+                {
+                    _logger.LogWarning(ex, "Could not publish event: {EventId} after {Timeout}s ({ExceptionMessage})",
+                        @event.Id, $"{time.TotalSeconds:n1}", ex.Message);
+                });
 
         var eventName = @event.GetType().Name;
 
@@ -66,7 +69,7 @@ public class EventBusRabbitMQ : IEventBus, IDisposable
         using var channel = _persistentConnection.CreateModel();
         _logger.LogTrace("Declaring RabbitMQ exchange to publish event: {EventId}", @event.Id);
 
-        channel.ExchangeDeclare(exchange: BROKER_NAME, type: "direct");
+        channel.ExchangeDeclare(exchange: BROKER_NAME, type: ExchangeType.Direct, durable: true);
 
         var body = JsonSerializer.SerializeToUtf8Bytes(@event, @event.GetType(), new JsonSerializerOptions
         {
@@ -78,7 +81,7 @@ public class EventBusRabbitMQ : IEventBus, IDisposable
             var properties = channel.CreateBasicProperties();
             properties.DeliveryMode = 2; // persistent
 
-                _logger.LogTrace("Publishing event to RabbitMQ: {EventId}", @event.Id);
+            _logger.LogTrace("Publishing event to RabbitMQ: {EventId}", @event.Id);
 
             channel.BasicPublish(
                 exchange: BROKER_NAME,
@@ -96,7 +99,8 @@ public class EventBusRabbitMQ : IEventBus, IDisposable
         var eventName = _subsManager.GetEventKey<T>();
         DoInternalSubscription(eventName);
 
-        _logger.LogInformation("Subscribing to event {EventName} with {EventHandler}", eventName, typeof(TH).GetGenericTypeName());
+        _logger.LogInformation("Subscribing to event {EventName} with {EventHandler}", eventName,
+            typeof(TH).GetGenericTypeName());
 
         _subsManager.AddSubscription<T, TH>();
         StartBasicConsume();
@@ -111,10 +115,10 @@ public class EventBusRabbitMQ : IEventBus, IDisposable
             {
                 _persistentConnection.TryConnect();
             }
- 
+
             _consumerChannel?.QueueBind(queue: _queueName,
-                                exchange: BROKER_NAME,
-                                routingKey: eventName);
+                exchange: BROKER_NAME,
+                routingKey: eventName);
         }
     }
 
@@ -193,13 +197,14 @@ public class EventBusRabbitMQ : IEventBus, IDisposable
         var channel = _persistentConnection.CreateModel();
 
         channel.ExchangeDeclare(exchange: BROKER_NAME,
-                                type: "direct");
+            type: ExchangeType.Direct,
+            durable: true);
 
         channel.QueueDeclare(queue: _queueName,
-                                durable: true,
-                                exclusive: false,
-                                autoDelete: false,
-                                arguments: null);
+            durable: true,
+            exclusive: false,
+            autoDelete: false,
+            arguments: null);
 
         channel.CallbackException += (sender, ea) =>
         {
@@ -226,7 +231,8 @@ public class EventBusRabbitMQ : IEventBus, IDisposable
                 var handler = _serviceProvider.GetService(handlerType);
                 if (handler == null) continue;
                 var eventType = _subsManager.GetEventTypeByName(eventName);
-                var applicationEvent = JsonSerializer.Deserialize(message, eventType, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+                var applicationEvent = JsonSerializer.Deserialize(message, eventType,
+                    new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
                 var concreteType = typeof(IApplicationEventHandler<>).MakeGenericType(eventType);
 
                 await Task.Yield();

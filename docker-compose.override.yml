@@ -1,0 +1,65 @@
+version: '3.4'
+name: netadvanced-shop
+
+services:
+  sqldata:
+    container_name: SQLServer
+    environment:
+      - SA_PASSWORD=Pass@word
+      - ACCEPT_EULA=Y
+    ports:
+      - "5433:1433"
+    volumes:
+      - netadvancedshop-sqldata:/var/opt/mssql
+
+  rabbitmq:
+    container_name: RabbitMQ
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+
+  identity.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:80
+      - CatalogUrl=http://host.docker.internal:5104
+      - CartingUrl=http://host.docker.internal:5103
+      - ConnectionStrings__DefaultConnection=${IDENTITY_DB:-Server=sqldata;Database=IdentityService;User Id=sa;Password=Pass@word;Encrypt=False;TrustServerCertificate=true}
+      - PATH_BASE=/identity-api
+    ports:
+      - "5105:80"
+
+  catalog.web:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:80
+      - ConnectionStrings__DefaultConnection=${CATALOG_DB:-Server=sqldata;Database=IdentityService;User Id=sa;Password=Pass@word;Encrypt=False;TrustServerCertificate=true}
+      - ConnectionStrings__EventBusConnection=${SERVICE_BUS:-rabbitmq}
+      - IdentityUrl=http://host.docker.internal:5105
+      - IdentityUrlExternal=http://host.docker.internal:5105
+      - PATH_BASE=/catalog-web
+      - PORT=80
+    ports:
+      - "5104:80"
+      - "9104:81"
+
+  carting.web:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:80
+      - Carting__ConnectionString=${CARTING_DB:-Filename=/data/litedb/Cart.db;Connection=shared}
+      - EventBusConnection=${SERVICE_BUS:-rabbitmq}
+      - IdentityUrl=http://host.docker.internal:5105
+      - IdentityUrlExternal=http://host.docker.internal:5105
+      - PATH_BASE=/carting-web
+      - PORT=80
+    ports:
+      - "5103:80"
+      - "9103:81"
+    volumes:
+      - netadvancedshop-nosqldata:/data/litedb
+volumes:
+  netadvancedshop-sqldata:
+    external: false
+  netadvancedshop-nosqldata:
+    external: false
