@@ -1,0 +1,37 @@
+name: Build and test solution
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+
+env:
+  DOTNET_VERSION: '7.0.x'
+  SOLUTION_NAME: 'NetAdvancedShop.sln'
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    # Not triggered if pull request is closed without merging
+    if: ${{ github.event.pull_request.merged || (github.event_name == 'pull_request' && github.event.action != 'closed') }}
+    steps:
+      - name: Check-out repository
+        uses: actions/checkout@v3
+
+      - name: Set up .NET environment
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+          include-prerelease: true
+
+      - name: Restore dependencies
+        run: dotnet restore ${{ env.SOLUTION_NAME }}
+
+      - name: Build solution
+        run: dotnet build ${{ env.SOLUTION_NAME }} --no-restore -c Release
+        
+      - name: Test solution
+        run: dotnet test ${{ env.SOLUTION_NAME }} --no-build --no-restore --nologo -v quiet -c Release
